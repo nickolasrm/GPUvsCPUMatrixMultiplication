@@ -26,3 +26,20 @@ Processos realizados
 - Comparar resultado das matrizes com  "./comp C1.txt C2.txt"
 - Renomear matrizes 0....txt, 1....txt e  2....txt para a.txt, b.txt e c.txt com "make rename"
 - Limpar txts com "make clean"
+
+**OBS**
+Os arquivos de saida com s no gerar serão:
+```
+- 0-dimxdim.txt: Matriz A
+- 1-dimxdim.txt: Matriz B
+- 2-dimxdim.txt: Matriz C
+```
+Se executar novamente com as mesmas dimensoes, os arquivos serão sobrepostos
+Portanto, é bom usar "make rename" e depois executar a proxima conta
+Um exemplo de execução seria:
+```
+./cuda g 1000 1000 1000 1000 s
+make rename
+./norm f 1000 1000 1000 1000 a.txt b.txt
+./comp 0-1000x1000.txt c.txt
+```
