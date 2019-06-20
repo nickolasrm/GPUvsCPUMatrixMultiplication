@@ -28,6 +28,10 @@ Processos realizados:
 - Limpar txts com "make clean"
 
 **OBS**
+### Binários gerados
+- cuda: Multiplicação de matrizes otimizada e com cuda
+- norm: Multiplicação de matrizes não otimizada sequencial
+- comp: Comparação de igualdade de matrizes a partir de arquivos
 ### Os arquivos de saida com s no gerar serão:
 ```
 0-dimxdim.txt: Matriz A
