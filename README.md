@@ -22,6 +22,7 @@ Processos realizados
   - "L2 C2" são as dimensões da matriz B
   - "ARQ1" é o nome do arquivo da matriz A
   - "ARQ2" é o nome do arquivo da matriz B
+- Compilar comparador de matrizes com "make comparador"
 - Comparar resultado das matrizes com  "./comp C1.txt C2.txt"
 - Renomear matrizes 0....txt, 1....txt e  2....txt para a.txt, b.txt e c.txt com "make rename"
 - Limpar txts com "make clean"
