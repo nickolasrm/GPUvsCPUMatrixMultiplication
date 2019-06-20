@@ -1,5 +1,5 @@
 # AA de Arquitetura 1
-Processos realizados
+Processos realizados:
 - Transposta
 - Otimização de partes recorrentes
 - AVX
@@ -34,8 +34,8 @@ Processos realizados
 - 1-dimxdim.txt: Matriz B
 - 2-dimxdim.txt: Matriz C
 ```
-Se executar novamente com as mesmas dimensoes, os arquivos serão sobrepostos
-Portanto, é bom usar "make rename" e depois executar a proxima conta
+Se executar novamente com as mesmas dimensoes, os arquivos serão sobrepostos.
+Portanto, é bom usar "make rename" e depois executar a proxima conta.
 ### Um exemplo de execução seria:
 ```
 ./cuda g 1000 1000 1000 1000 s
