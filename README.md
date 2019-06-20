@@ -28,7 +28,7 @@ Processos realizados
 - Limpar txts com "make clean"
 
 **OBS**
-Os arquivos de saida com s no gerar serão:
+### Os arquivos de saida com s no gerar serão:
 ```
 - 0-dimxdim.txt: Matriz A
 - 1-dimxdim.txt: Matriz B
@@ -36,7 +36,7 @@ Os arquivos de saida com s no gerar serão:
 ```
 Se executar novamente com as mesmas dimensoes, os arquivos serão sobrepostos
 Portanto, é bom usar "make rename" e depois executar a proxima conta
-Um exemplo de execução seria:
+### Um exemplo de execução seria:
 ```
 ./cuda g 1000 1000 1000 1000 s
 make rename
