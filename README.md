@@ -30,9 +30,9 @@ Processos realizados:
 **OBS**
 ### Os arquivos de saida com s no gerar serão:
 ```
-- 0-dimxdim.txt: Matriz A
-- 1-dimxdim.txt: Matriz B
-- 2-dimxdim.txt: Matriz C
+0-dimxdim.txt: Matriz A
+1-dimxdim.txt: Matriz B
+2-dimxdim.txt: Matriz C
 ```
 Se executar novamente com as mesmas dimensoes, os arquivos serão sobrepostos.
 Portanto, é bom usar "make rename" e depois executar a proxima conta.
