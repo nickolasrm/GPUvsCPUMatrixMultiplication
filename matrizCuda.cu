@@ -526,7 +526,7 @@ FuncMul *escolherFuncao(Input *i)
 				if(col < 175)
 					return &multiplicarMatrizesAVX;
 	}
-	printf("CUDA");
+	
 	return &multiplicarMatrizesCUDA;
 }
 
@@ -537,8 +537,8 @@ int main(int argc, char ** argv)
 			inicializar();
 			Input *i = (Input*) malloc(sizeof(Input));
 			printf("Tempo de criacao: %lf\n", medirTempoInput(&i, argc, argv, &lerInput));
-			//printf("Tempo de execucao: %lf\n", medirTempoExecMul(i, escolherFuncao(i)));
-			printf("Tempo de execucao AVX: %lf\n", medirTempoExecMul(i, &multiplicarMatrizesAVX));
+			printf("Tempo de execucao: %lf\n", medirTempoExecMul(i, escolherFuncao(i)));
+			//printf("Tempo de execucao AVX: %lf\n", medirTempoExecMul(i, &multiplicarMatrizesAVX));
 			//printf("Tempo de execucao CUDA: %lf\n", medirTempoExecMul(i, &multiplicarMatrizesCUDA));
 			salvarELiberarMatrizes(i);
 	}

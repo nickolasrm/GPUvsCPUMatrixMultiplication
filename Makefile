@@ -1,3 +1,4 @@
+GCC = gcc
 CC = nvcc
 MCUDAFLAGS = -mavx2 -fopenmp
 CFLAGS = -O3
@@ -9,13 +10,18 @@ all:
 	@make -s cuda
 
 normal:
-	@echo "\n\nCompilando normal\n\n"
-	$(CC) -o a matriz.cu $(CFLAGS)
+	@echo "\n\nCompilando normal...\n\n"
+	$(CC) -o norm matriz.cu $(CFLAGS)
 	$(FEITO)
 
 cuda: 
-	@echo "\n\nCompilando CUDA\n\n"
-	$(CC) -o b matrizCuda.cu -Xcompiler "$(CFLAGS) $(MCUDAFLAGS)" $(ARCH)
+	@echo "\n\nCompilando CUDA...\n\n"
+	$(CC) -o cuda matrizCuda.cu -Xcompiler "$(CFLAGS) $(MCUDAFLAGS)" $(ARCH)
+	$(FEITO)
+
+comparador:
+	@echo "\n\nCompilando comparador...\n\n"
+	$(GCC) -o comp comparador.c -O3 -Wall
 	$(FEITO)
 
 clean:

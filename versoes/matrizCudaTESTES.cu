@@ -201,11 +201,9 @@ __global__ void kernelMulMatriz(int *a, int aN, int aM, int *b, int bN, int bM, 
 	__shared__ int tileA[OPMAX];
 	__shared__ int tileB[OPMAX];
 
-	int limL = THREADS_PER_BLOCK;
 	int temp = 0;
-	for(int k = 0; k < cM; k += THREADS_PER_BLOCK)
+	for(int k = 0; k < aM; k += THREADS_PER_BLOCK)
 	{
-		limL = THREADS_PER_BLOCK;
 		tileA[posTile] = 0;
 		tileB[posTile] = 0;
 		if((k + threadIdx.y) < aM)
@@ -215,7 +213,7 @@ __global__ void kernelMulMatriz(int *a, int aN, int aM, int *b, int bN, int bM, 
 		}
 		__syncthreads();
 		
-		for(int l = 0; l < limL; l++)
+		for(int l = 0; l < THREADS_PER_BLOCK; l++)
 			temp += tileA[indA + l] * tileB[indB + l];
 		__syncthreads();
 	}
@@ -511,9 +509,9 @@ FuncMul *escolherFuncao(Input *i)
 	{
 		if(lin < 64)
 			return &multiplicarMatrizesAVX;
-		else if(lin < 400 && col < 700)
+		else if(lin < 300 && col < 600)
 			return &multiplicarMatrizesAVX;
-		else if(lin < 500 && col < 450)
+		else if(lin < 400 && col < 350)
 			return &multiplicarMatrizesAVX;
 	}
 	else
@@ -528,7 +526,6 @@ FuncMul *escolherFuncao(Input *i)
 				if(col < 175)
 					return &multiplicarMatrizesAVX;
 	}
-
 	return &multiplicarMatrizesCUDA;
 }
 
