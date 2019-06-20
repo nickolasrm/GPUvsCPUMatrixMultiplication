@@ -39,9 +39,9 @@ Processos realizados:
 - comp: Comparação de igualdade de matrizes a partir de arquivos
 
 ### Os arquivos de saida com s no gerar serão:
-Matriz A: 0-dimxdim.txt
-Matriz B: 1-dimxdim.txt
-Matriz C: 2-dimxdim.txt
+- Matriz A: 0-dimxdim.txt
+- Matriz B: 1-dimxdim.txt
+- Matriz C: 2-dimxdim.txt
 
 Se executar novamente com as mesmas dimensoes, os arquivos serão sobrepostos.
 Portanto, é bom usar "make rename" e depois executar a proxima conta.
