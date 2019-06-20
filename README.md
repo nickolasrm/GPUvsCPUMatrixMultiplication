@@ -15,7 +15,7 @@ Processos realizados
   - "L1 C1" são as dimensoes da matriz A
   - "L2 C2" são as dimensões da matriz B
   - "s", é opcional e diz ao programa para salvar as matrizes A e B. (Caso não o tenha, só é salva a matriz C)
- - Ler uma matriz "./PROG f L1 C1 L2 C2 ARQ1 ARQ2"
+- Ler uma matriz "./PROG f L1 C1 L2 C2 ARQ1 ARQ2"
   - "PROG" é o programa a ser utilizado (./cuda ou ./norm)
   - "f" diz ao programa para ler uma matriz
   - "L1 C1" são as dimensoes da matriz A
