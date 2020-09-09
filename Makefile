@@ -3,34 +3,34 @@ CC = nvcc
 MCUDAFLAGS = -mavx2 -fopenmp
 CFLAGS = -O3
 ARCH = -arch=sm_52
-FEITO = @echo "\nTarefas finalizadas!\n"
+FEITO = @echo "\nFinished tasks!\n"
 
 all:
 	@make -s normal
 	@make -s cuda
 
 normal:
-	@echo "\n\nCompilando normal...\n\n"
-	$(CC) -o norm matriz.cu $(CFLAGS)
+	@echo "\n\nCompiling regular...\n\n"
+	$(CC) -o norm matrix.cu $(CFLAGS)
 	$(FEITO)
 
 cuda: 
-	@echo "\n\nCompilando CUDA...\n\n"
-	$(CC) -o cuda matrizCuda.cu -Xcompiler "$(CFLAGS) $(MCUDAFLAGS)" $(ARCH)
+	@echo "\n\Compiling CUDA...\n\n"
+	$(CC) -o cuda matrixCuda.cu -Xcompiler "$(CFLAGS) $(MCUDAFLAGS)" $(ARCH)
 	$(FEITO)
 
-comparador:
-	@echo "\n\nCompilando comparador...\n\n"
-	$(GCC) -o comp comparador.c -O3 -Wall
+comparator:
+	@echo "\n\Compiling comparator...\n\n"
+	$(GCC) -o comp comparator.c -O3 -Wall
 	$(FEITO)
 
 clean:
-	@echo "Limpando txts..."
+	@echo "Cleaning txts..."
 	@rm -r *.txt
 	$(FEITO)
 
 rename:
-	@echo "Renomeando..."
+	@echo "Renaming..."
 	@mv 0-*.txt a.txt
 	@mv 1-*.txt b.txt
 	@mv 2-*.txt c.txt

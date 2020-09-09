@@ -22,16 +22,16 @@ What has been made:
   - "L2 C2" are respectively matrix B lines and columns
   - "FILE1" is the name of matrix A file
   - "FILE2" is the name of matrix B file
-- Compile matrix comparator with "make comparador"
+- Compile matrix comparator with "make comparator"
 - Compare matrix multiplication results with  "./comp C1.txt C2.txt"
 - Rename matrices from 0....txt, 1....txt e  2....txt to a.txt, b.txt and c.txt with "make rename"
 - Clean txts with "make clean"
 
 **NOTE**
 ### Source files
-- matrizCuda.cu: Optimized matrix multiplication (CUDA, AVX, Transposition...)
-- matriz.cu: Not optmized matrix multiplication
-- comparador.c: Matrix equality file comparator
+- matrixCuda.cu: Optimized matrix multiplication (CUDA, AVX, Transposition...)
+- matrix.cu: Not optmized matrix multiplication
+- comparator.c: Matrix equality file comparator
 
 ### Generated binaries
 - cuda: Optimized matrix multiplication (CUDA, AVX, Transposition...)

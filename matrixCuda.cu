@@ -373,7 +373,7 @@ Input *lerInput(int argc, char **argv)
 		}
 		else
 		{
-			printf("Matrizes Incompativeis!\n");
+			printf("Incompatible Matrices!\n");
 			exit(0);
 		}
 	}
@@ -430,24 +430,24 @@ int verificarArgumentos(int argc, char **argv)
 {
 	if(argc < 6)
 	{
-		printf("Poucos argumentos\n"
-			"#  FONTE: f para arquivos, g para gerar\n"
-			"#  LINSA: linhas para matriz A\n"
-			"#  COLSA: colunas para matriz A\n"
-			"#  LINSB: linhas para matriz B\n"
-			"#  COLSB: colunas para matriz B\n"
-			"#  ARQA: arquivo com a matriz A\n"
-			"#  ARQB: arquivo com a matriz B\n"
-			"#  SAV (opcional): salva as matrizes A e B geradas"
-			"##  ./prog f LA CA LB CB ARQA ARQB\n"
-			"##  ./prog g LA CA LB CB SAV\n");
+		printf("Not enough arguments\n"
+			"#  SOURCE: f for files, g for generation\n"
+			"#  LINSA: matrix A lines\n"
+			"#  COLSA: matrix A columns\n"
+			"#  LINSB: matrix B lines\n"
+			"#  COLSB: matrix B columns\n"
+			"#  FILEA: matrix A file\n"
+			"#  FILEB: matrix B file\n"
+			"#  SAV (opcional): saves generated matrices A and B"
+			"##  ./bin f LA CA LB CB FILEA FILEB\n"
+			"##  ./bin g LA CA LB CB SAV\n");
 		return 0;
 	}
 	else
 	{
 		if(argv[1][0] != 'f' && argv[1][0] != 'g')
 		{
-			printf("Argumento fonte invalido, use g ou f\n");
+			printf("Invalid source argument, try using g or f\n");
 			return 0;
 		}
 
@@ -455,7 +455,7 @@ int verificarArgumentos(int argc, char **argv)
 		for(int i = 2; i < 6; i++)
 			if(!sscanf(argv[i], "%d", &aux))
 			{
-				printf("O valor %d nao e um numero, informe as dimensoes das matrizes A e B\n", (i - 1));
+				printf("%d is not a number, type matrices A and B dimensions\n", (i - 1));
 				return 0;
 			}
 
@@ -463,7 +463,7 @@ int verificarArgumentos(int argc, char **argv)
 			if(argc == 7)
 				if(argv[6][0] != 's')
 				{
-					printf("Adicione s para salvar as matrizes A e B\n");
+					printf("Add 's' to save matrices A and B\n");
 					return 0;
 				}
 
@@ -472,14 +472,14 @@ int verificarArgumentos(int argc, char **argv)
 			FILE *f;
 			if((f = fopen(argv[6], "r")) == NULL)
 			{
-				printf("O arquivo da matriz A nao existe\n");
+				printf("Matrix A file does not exist\n");
 				return 0;
 			}
 			else
 				fclose(f);
 			if((f = fopen(argv[7], "r")) == NULL)
 			{
-				printf("O arquivo da matriz B nao existe\n");
+				printf("Matrix B file does not exist\n");
 				return 0;
 			}
 			else
@@ -536,8 +536,8 @@ int main(int argc, char ** argv)
 	{
 			inicializar();
 			Input *i = (Input*) malloc(sizeof(Input));
-			printf("Tempo de criacao: %lf\n", medirTempoInput(&i, argc, argv, &lerInput));
-			printf("Tempo de execucao: %lf\n", medirTempoExecMul(i, escolherFuncao(i)));
+			printf("Creation time: %lf\n", medirTempoInput(&i, argc, argv, &lerInput));
+			printf("Execution time: %lf\n", medirTempoExecMul(i, escolherFuncao(i)));
 			//printf("Tempo de execucao AVX: %lf\n", medirTempoExecMul(i, &multiplicarMatrizesAVX));
 			//printf("Tempo de execucao CUDA: %lf\n", medirTempoExecMul(i, &multiplicarMatrizesCUDA));
 			salvarELiberarMatrizes(i);

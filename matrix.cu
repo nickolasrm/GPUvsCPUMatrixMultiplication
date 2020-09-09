@@ -155,10 +155,10 @@ Input *lerInput(int argc, char **argv)
 			return i;
 		}
 		else
-			printf("Matrizes Incompativeis!\n");
+			printf("Incompatible Matrices!\n");
 	}
 	else
-		printf("Argumentos invalidos!\n");
+		printf("Invalid arguments!\n");
 
 	return NULL;
 }
@@ -250,14 +250,14 @@ int verificarArgumentos(int argc, char **argv)
 			FILE *f;
 			if((f = fopen(argv[6], "r")) == NULL)
 			{
-				printf("Matrix A does not exist\n");
+				printf("Matrix A file does not exist\n");
 				return 0;
 			}
 			else
 				fclose(f);
 			if((f = fopen(argv[7], "r")) == NULL)
 			{
-				printf("Matrix B does not exist\n");
+				printf("Matrix B file does not exist\n");
 				return 0;
 			}
 			else
