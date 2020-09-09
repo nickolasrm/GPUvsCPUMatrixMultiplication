@@ -16,7 +16,7 @@ int compararMatriz(char **argv)
 		scan2 = fscanf(b, " %d", &val2);
 		if(val1 != val2)
 		{
-			printf("Diferentes\n Elemento: %d\n", i);
+			printf("Different\n Element: %d\n", i);
 			return 0;
 		}
 		i++;
@@ -24,11 +24,11 @@ int compararMatriz(char **argv)
 
 	if(scan1 != scan2)
 	{
-		printf("Tamanhos diferentes\n");
+		printf("Different dimensions\n");
 		return 0;
 	}
 
-	printf("Iguais\n Elementos verificados: %d\n", --i);
+	printf("Euqal\n Checked elements: %d\n", --i);
 	return 1;
 }
 
@@ -36,20 +36,20 @@ int verificarArgumentos(int argc, char **argv)
 {
 	if(argc != 3)
 	{
-		printf("Argumentos invalidos\n");
+		printf("Invalid arguments\n");
 		printf("./comp arquivo1.txt arquivo2.txt\n");
 		return 0;
 	}
 	FILE *f;
 	if((f = fopen(argv[1], "r")) == NULL)
 	{
-		printf("Arquivo 1 nao existe\n");
+		printf("File 1 does not exist\n");
 		return 0;
 	}
 	fclose(f);	
 	if((f = fopen(argv[2], "r")) == NULL)
 	{
-		printf("Arquivo 2 nao existe\n");
+		printf("File 2 does not exist\n");
 		return 0;
 	}
 	fclose(f);
