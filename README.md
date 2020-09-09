@@ -1,52 +1,52 @@
-# AA de Arquitetura 1
-Processos realizados:
-- Transposta
-- Otimização de partes recorrentes
+# GPU vs CPU analysis
+What has been made:
+- Transposition
+- Optimization of recurrent operations in loops
 - AVX
-- OMP
+- OpenMP
 - CUDA
 - Tile based
 
-**COMANDOS**
-- Compilar os codigos com comando "make"
-- Gerar uma matriz "./PROG g L1 C1 L2 C2 s"
-  - "PROG" é o programa a ser utilizado (./cuda ou ./norm)
-  - "g" diz ao programa para gerar uma matriz
-  - "L1 C1" são as dimensoes da matriz A
-  - "L2 C2" são as dimensões da matriz B
-  - "s", é opcional e diz ao programa para salvar as matrizes A e B. (Caso não o tenha, só é salva a matriz C)
-- Ler uma matriz "./PROG f L1 C1 L2 C2 ARQ1 ARQ2"
-  - "PROG" é o programa a ser utilizado (./cuda ou ./norm)
-  - "f" diz ao programa para ler uma matriz
-  - "L1 C1" são as dimensoes da matriz A
-  - "L2 C2" são as dimensões da matriz B
-  - "ARQ1" é o nome do arquivo da matriz A
-  - "ARQ2" é o nome do arquivo da matriz B
-- Compilar comparador de matrizes com "make comparador"
-- Comparar resultado das matrizes com  "./comp C1.txt C2.txt"
-- Renomear matrizes 0....txt, 1....txt e  2....txt para a.txt, b.txt e c.txt com "make rename"
-- Limpar txts com "make clean"
+**Usage**
+- Compile it by using "make"
+- Generate a matrix with "./BINARY g L1 C1 L2 C2 s"
+  - "BINARY" is the binary to be used (./cuda or ./norm)
+  - "g" tells the software to generate a matrix
+  - "L1 C1" are respectively matrix A lines and columns
+  - "L2 C2" are respectively matrix B lines and columns
+  - "s", (optional) tells the software to save matrix A and B
+- Reading a matrix from file "./BINARY f L1 C1 L2 C2 FILE1 FILE2"
+  - "BINARY" is the binary to be used (./cuda or ./norm)
+  - "f" tells the software to read a matrix from a file
+  - "L1 C1" are respectively matrix A lines and columns
+  - "L2 C2" are respectively matrix B lines and columns
+  - "FILE1" is the name of matrix A file
+  - "FILE2" is the name of matrix B file
+- Compile matrix comparator with "make comparador"
+- Compare matrix multiplication results with  "./comp C1.txt C2.txt"
+- Rename matrices from 0....txt, 1....txt e  2....txt to a.txt, b.txt and c.txt with "make rename"
+- Clean txts with "make clean"
 
-**OBS**
-### Arquivos fonte
-- matrizCuda.cu: Multiplicação de matrizes otimizada e com cuda
-- matriz.cu: Multiplicação de matrizes não otimizada sequencial
-- comparador.c: Comparação de igualdade de matrizes a partir de arquivos
+**NOTE**
+### Source files
+- matrizCuda.cu: Optimized matrix multiplication (CUDA, AVX, Transposition...)
+- matriz.cu: Not optmized matrix multiplication
+- comparador.c: Matrix equality file comparator
 
-### Binários gerados
-- cuda: Multiplicação de matrizes otimizada e com cuda
-- norm: Multiplicação de matrizes não otimizada sequencial
-- comp: Comparação de igualdade de matrizes a partir de arquivos
+### Generated binaries
+- cuda: Optimized matrix multiplication (CUDA, AVX, Transposition...)
+- norm: Not optimized matrix multiplication
+- comp: Matrix equality file comparator
 
-### Os arquivos de saida com s no gerar serão:
-- Matriz A: 0-dimxdim.txt
-- Matriz B: 1-dimxdim.txt
-- Matriz C: 2-dimxdim.txt
+### Output files saved with 's' flag:
+- Matrix A: 0-rowsxcols.txt
+- Matrix B: 1-rowsxcols.txt
+- Matrix C: 2-rowsxcols.txt
 
-Se executar novamente com as mesmas dimensoes, os arquivos serão sobrepostos.
-Portanto, é bom usar "make rename" e depois executar a proxima conta.
+Whether executing the software with the same matrix dimensions, the output files will be overwritten.
+Thus, is better to use "make rename" to avoid it.
 
-### Um exemplo de execução seria:
+### Usage example:
 ```
 ./cuda g 1000 1000 1000 1000 s
 make rename
